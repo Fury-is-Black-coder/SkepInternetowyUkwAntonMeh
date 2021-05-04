@@ -1,0 +1,17 @@
+﻿@model IEnumerable<SklepUKW.Models.Film>
+@using SklepUKW.Infrastructure
+@{
+    ViewBag.Title = "Index";
+    
+}
+
+<h2>Najdłuższe filmy</h2>
+<table style="background-color:#58452c">
+    <tr>
+        @foreach (var film in Model)
+        {
+            <td><a href="@Url.Action("Details", "Films", new { id = film.FilmId})"><img src="@Url.PostersPath(film.PosterName)" /></a></td>
+        }
+    </tr>
+</table>
+

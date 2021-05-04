@@ -1,0 +1,9 @@
+﻿@model IEnumerable<SklepUKW.Models.Category>
+
+<div id="menu">
+    @foreach (var category in @Model)
+    {
+        <a href="@Url.Action("List", "Films", new { categoryName = category.Name })">@category.Name</a>
+    }
+
+</div>

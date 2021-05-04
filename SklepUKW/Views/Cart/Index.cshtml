@@ -1,0 +1,30 @@
+﻿@model SklepUKW.ViewModels.CartViewModel
+@using SklepUKW.Infrastructure
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Twój koszyk</h2>
+<table id="koszykTabela">
+    @foreach (var item in @Model.CartItems)
+    {
+    <tr>
+        <td><a href="@Url.Action("Details","Films", new { id = item.Film.FilmId })" ><img src="@Url.PostersPath(item.Film.PosterName)" /></a></td>
+        <td><a href="@Url.Action("Details","Films", new { id = item.Film.FilmId })">@item.Film.Title</a></td>
+        <td>Ilość: @item.Quantity</td>
+        <td>@item.Price zł</td>
+        <td><a href="link">&#128465;</a></td>
+    </tr>
+    }
+    
+</table>
+
+<div id="CenaCalkowita" style="">
+    Razem: @Model.TotalPrice zł
+</div>
+
+<div class="SekcjaPrzyciski">
+    <a class="PrzyciskLink" href="link">&#9755; Kontynuuj zakupy &#9754;</a>
+    <a class="PrzyciskLink" href="link">&#9755; Zapłać &#9754;</a>
+</div>
+

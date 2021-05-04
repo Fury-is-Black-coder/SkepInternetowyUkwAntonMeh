@@ -1,0 +1,9 @@
+﻿@model IEnumerable<SklepUKW.Models.Film>
+
+<ul>
+    @foreach (var film in Model)
+    {
+        <li><a href="@Url.Action("Details", "Films", new { id = film.FilmId })">@film.Title</a></li>
+
+    }
+</ul>

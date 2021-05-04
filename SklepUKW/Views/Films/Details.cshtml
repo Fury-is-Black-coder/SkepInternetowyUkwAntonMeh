@@ -1,0 +1,30 @@
+﻿@model SklepUKW.Models.Film
+@using SklepUKW.Infrastructure
+@{
+    ViewBag.Title = "Szczegóły filmu ";
+}
+
+@Html.MvcSiteMap().SiteMapPath()
+
+<div id="szczegoly">
+    <table id="tableSzczegoly">
+        <tr>
+            <td id="filmsFromCategory">
+                <h2>@Model.Category.Name</h2>
+                @Html.Action("FilmsFromCategory", "Films", new { categoryName = Model.Category.Name })
+            </td>
+            <td id="obrazek">
+                <img src="@Url.PostersPath(Model.PosterName)">
+            </td>
+            <td>
+                <ul>
+                    <li>Tytuł: @Model.Title</li>
+                    <li>Reżyser: @Model.Director</li>
+                    <li>Opis: @Model.Desc</li>
+                    <li>Cena: @Model.Price</li>
+                    <li>Data dodania: @Model.AddDate</li>
+                </ul>
+            </td>
+        </tr>
+        <table>
+</div>

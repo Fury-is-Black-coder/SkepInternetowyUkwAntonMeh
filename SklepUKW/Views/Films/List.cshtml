@@ -1,0 +1,31 @@
+﻿@model SklepUKW.ViewModels.ListViewModel
+@using SklepUKW.Infrastructure
+@{
+    ViewBag.Title = "List";
+    //Layout = null;
+}
+
+<table style="background-color: #58452c; color: white">
+    <tr><td colspan="3"> NOWOŚCI </td></tr>
+    <tr>
+        @foreach(var film in Model.Top3NewestFilms)
+            {
+                <td><a href="@Url.Action("Details", "Films", new { id = film.FilmId})"><img src="@Url.PostersPath(film.PosterName)" /></a></td>
+            }
+    </tr>
+</table>
+
+<h2>@Model.Category.Name - @Model.Category.Desc</h2>
+
+@Html.MvcSiteMap().SiteMapPath()
+<table border=1px>
+    @foreach (var film in Model.FilmsFromCategory)
+    {
+        <tr>
+            <td><a href="@Url.Action("Details", "Films", new { id = film.FilmId})"><img src="@Url.PostersPath(film.PosterName)"></a></td>
+            <td>@film.Title</td>
+            <td>@film.Price</td>
+            <td><a href="@Url.Action("AddToCart", "Cart", new { id = film.FilmId})">&#128722;</a></td>
+        </tr>
+    } 
+<table>
