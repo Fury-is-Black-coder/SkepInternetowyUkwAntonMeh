@@ -16,7 +16,7 @@ namespace SklepUKW.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            var top3LongestFilms = db.Films.OrderByDescending(f => f.Length).Take(3);
+            var top3LongestFilms = db.Films.OrderByDescending(f => f.Length).Take(3).ToList();
             return View(top3LongestFilms);
         }
 

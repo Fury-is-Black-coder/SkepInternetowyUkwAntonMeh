@@ -120,3 +120,44 @@ footer
     #koszykTabela tr {
         border-bottom: 1px solid #DADADA;
     }
+
+fieldset {
+    width: 400px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    border: 8px double orange;
+    color: rgb(70, 39, 1);
+}
+
+legend {
+    font-size: 25px;
+    font-family: Comic Sans MS;
+    color: rgb(70, 39, 1);
+}
+
+label {
+    margin: 10px;
+}
+
+input {
+    padding: 10px;
+    margin: 10px;
+}
+
+#buttonLogin {
+    color: rgb(70, 39, 1);
+    background-color: white;
+    display: block;
+    margin: 1.0em auto;
+    width: 150px;
+    text-align: center;
+}
+
+.error 
+{
+    color: #d5adc3;
+    font-size: 15px;
+}

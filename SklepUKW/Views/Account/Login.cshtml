@@ -1,0 +1,36 @@
+﻿@model SklepUKW.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+<fieldset>
+    <legend> Logowanie </legend>
+    @Html.ValidationSummary("", new { @class = "error" })
+
+    @Html.LabelFor(u => u.Email, "Email: ")
+    @Html.TextBoxFor(u => u.Email)<br />
+    <p class="error">@Html.ValidationMessageFor(u => u.Email)</p>
+    <br>
+    @Html.LabelFor(u => u.Password, "Hasło: ")
+    @Html.PasswordFor(u => u.Password)<br />
+    <p class="error">@Html.ValidationMessageFor(u => u.Password)</p>
+    <br>
+    @Html.CheckBoxFor(u => u.RememberMe, new { @checked = "checked" })
+    @Html.LabelFor(u => u.RememberMe, "Zapamiętaj mnie")
+    <br>
+    <input type="submit" value="Zaloguj" id="buttonLogin">
+
+    <a href="@Url.Action("Register","Account")"><u>Nie masz konta? Zarejestruj się!</u></a>
+</fieldset>
+}
+
+@section Scripts
+{
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+}
+
